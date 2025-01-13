@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Duta Bahasa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+       body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        background-color: rgba(83, 156, 0, 1);
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+      }
+
+      .navbar-brand{
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-brand img {
+        width: 50px;
+        height: auto;
+      }
+       .navbar-brand p {
+        margin-left: 10px;
+        margin-top: 2px;
+        margin-bottom: 0px;
+        font-size: 1.25rem;
+       }
+
+      .navbar .nav-link {
+        color: #f8f9fa !important;
+      }
+
+      .navbar .nav-link:hover {
+        color: #ffc107 !important;
+      }
+
+      .hero {
+        background: url(bg.jpg) no-repeat center center;
+        background-size: cover; /* Gambar akan menyesuaikan ukuran elemen */
+        background-position: center 20%;
+        color: #fff;
+        text-align: left;
+        padding: 150px 20px 230px 20px; /* Padding tetap berlaku */
+        margin-bottom: 50px;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Posisikan teks ke bawah */
+        align-items: flex-start; /* Posisikan teks ke kiri */
+      }
+
+
+      .hero h1, .hero h3 {
+        margin: 0; /* Hapus margin untuk mencegah tumpang tindih */
+        position: relative;
+        transform: translateY(150px);
+      }
+
+      .hero h1 {
+        font-weight: 700;
+        font-size: 3rem;
+      }
+
+      .hero h3 {
+        font-weight: 300;
+          margin-bottom: 20px;
+      }
+
+      .hero .btn {
+        position: relative;
+        margin-top: 20px;
+        background: none;
+        border: 2px solid #fff; /* Tambahkan border */
+        color: #fff;
+        font-size: 1.25rem;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 10px 20px; /* Tambahkan padding */
+        transform: translateY(150px)
+      }
+
+      .hero .btn:hover {
+        background-color: rgba(227, 201, 0, 1); /* Warna latar saat hover */
+      }
+
+      .hero::after {
+        content: '';
+        background: url('https://source.unsplash.com/1600x900/?nature,bali');
+        opacity: 0.2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #343a40;
+      }
+
+      .card {
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: scale(1.07);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-title {
+        color: #343a40;
+        font-weight: 600;
+      }
+
+      .btn.less-btn {
+        background: none;
+        border: none;
+        color: #6c757d;
+        padding: 0;
+        font-size: 0.9rem;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      footer {
+        background-color: rgba(83, 156, 0, 1);
+        color: #f8f9fa;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      
+      .trophy-icon {
+        color: gold; /* Atur warna emas untuk ikon piala */
+      }
+
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+      .countdown-item {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f1c40f;
+        color: #000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .countdown-item span {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .carousel-inner{
+        border-radius: 15px;
+      }
+
+
+      .carousel-item {
+        transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+
+      }
+
+      #slideshow {
+        max-width: 350px; /* Sesuaikan ukuran dengan card */
+        margin: 0 auto; /* Pusatkan slideshow */
+        border-radius: 15px; /* Konsisten dengan card */
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan agar mirip card */
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: none; /* Opsional: sembunyikan kontrol panah jika tidak diperlukan */
+      }
+
+      .carousel-item {
+        position: relative; /* Agar teks bisa diposisikan secara absolut di dalam item */
+      }
+
+      .carousel-caption {
+        position: absolute;
+        bottom: 0; /* Teks akan berada di bagian bawah gambar */
+        left: 0;
+        width: 100%;
+        padding: 10px 20px; /* Tambahkan sedikit padding agar teks tidak terlalu menempel di tepi */
+        background: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan untuk meningkatkan kontras */
+        color: #fff; /* Warna teks putih agar kontras dengan latar belakang gelap */
+        text-align: left; /* Atur teks menjadi rata kiri */
+        font-size: 1rem; /* Sesuaikan ukuran teks */
+      }
+
+      .carousel-caption h5 {
+        margin: 0 0 5px; /* Hapus margin atas dan tambahkan sedikit jarak di bawah */
+        font-size: 1.25rem; /* Ukuran teks untuk judul */
+        font-weight: 600; /* Tambahkan ketebalan pada teks judul */
+      }
+
+      .carousel-caption p {
+        margin: 0;
+        font-size: 1rem; /* Ukuran teks untuk deskripsi */
+        font-weight: 400;
+      }
+
+      /* Tambahkan media query untuk memastikan tampilan tetap responsif */
+      @media (max-width: 768px) {
+        .carousel-caption {
+          font-size: 0.9rem; /* Ukuran teks lebih kecil untuk layar kecil */
+          padding: 5px 10px; /* Kurangi padding pada layar kecil */
+        }
+
+        .carousel-caption h5 {
+          font-size: 1rem;
+        }
+
+        .carousel-caption p {
+          font-size: 0.8rem;
+        }
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="logo-removebg-preview.png" alt="Logo Duta Bahasa">
+          <p>Duta Bahasa</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero section -->
+    <div class="hero">
+      <h3>Ini saatnya,</h3>
+      <h1>Waktumu untuk bersinar!</h1>
+      <a href="#" class="btn btn-primary btn-lg" target="_blank">Daftarkan Diri Mu</a>
+    </div>
+
+    <!-- registration time -->
+    <div class="container my-5">
+      <!-- Gelombang 1 -->
+      <h2 class="text-center mb-4">Pendaftaran Duta Bahasa Provinsi Bali Gelombang 1</h2>
+      <div class="countdown" id="countdown1">
+        <div class="countdown-item">
+          <span id="days1">0</span><br>DAYS
+        </div>
+        <div class="countdown-item">
+          <span id="hours1">0</span><br>HOURS
+        </div>
+        <div class="countdown-item">
+          <span id="minutes1">0</span><br>MINUTES
+        </div>
+        <div class="countdown-item">
+          <span id="seconds1">0</span><br>SECONDS
+        </div>
+      </div>
+
+      <!-- Gelombang 2 -->
+      <h2 class="text-center mt-5 mb-4">Pendaftaran Duta Bahasa Provinsi Bali Gelombang 2</h2>
+      <div class="countdown" id="countdown2">
+        <div class="countdown-item">
+          <span id="days2">0</span><br>DAYS
+        </div>
+        <div class="countdown-item">
+          <span id="hours2">0</span><br>HOURS
+        </div>
+        <div class="countdown-item">
+          <span id="minutes2">0</span><br>MINUTES
+        </div>
+        <div class="countdown-item">
+          <span id="seconds2">0</span><br>SECONDS
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Story section -->
+    <section class="container my-5">
+      <h2 class="section-title"><i class="fas fa-trophy trophy-icon"></i>1ST Winner's</h2>
+      <div class="row text-center">
+        <!-- Rendra Card -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="rendra.jpg" class="card-img-top" alt="Rendra">
+            <div class="card-body">
+              <h5 class="card-title">Rendra</h5>
+              <p class="card-text">Menjadi bagian dari Duta Bahasa adalah pengalaman yang sangat berharga dan bermakna.</p>
+              <button class="btn btn-secondary detail-btn" data-target="#adventureDetail">Detail</button>
+              <div class="collapse" id="adventureDetail">
+                <p>Sebagai Duta Bahasa, saya tidak hanya belajar memperdalam pemahaman tentang bahasa persatuan,daerah ataupun internasional, tetapi juga bagaimana cara melestarikannya di tengah arus globalisasi. Kegiatan yang beragam, mulai dari abdi bahasa, jaga bahasa, dan niaga bahasa, memberikan saya kesempatan untuk berkontribusi langsung dalam upaya pelestarian bahasa.
+
+                  Duta Bahasa bagi saya adalah wadah yang menginspirasi generasi muda untuk lebih mencintai dan menjaga kekayaan bahasa dan budaya kita. Di sini, saya belajar bahwa bahasa bukan hanya alat komunikasi, tetapi juga identitas dan warisan yang harus dijaga dan diwariskan. Selaij itu, semangat kebersamaan dan dedikasi dari sesama Duta Bahasa menambah semangat saya untuk terus berkontribusi dalam pelestarian bahasa, karena bahasa adalah jantung budaya. Jika bahasa hilang, maka identitas dan sejarah kita juga akan sirna.</p>
+                <button class="btn less-btn">Show Less</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- story Card -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="winners couple.jpg" class="card-img-top" alt="our story">
+            <div class="card-body">
+              <h5 class="card-title">Our story</h5>
+              <p class="card-text">Experience Bali's rich cultural heritage and traditional arts.</p>
+              <button class="btn btn-secondary detail-btn" data-target="#cultureDetail">Detail</button>
+              <div class="collapse" id="cultureDetail">
+                <p>Dive into Bali's rich cultural heritage, from traditional dances and temples to its unique way of life.</p>
+                <button class="btn less-btn">Show Less</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jessica Card -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="jessica.jpg" class="card-img-top" alt="Jessica">
+            <div class="card-body">
+              <h5 class="card-title">Jessica</h5>
+              <p class="card-text">Menjadi Duta Bahasa Provinsi Bali adalah perjalanan penuh makna yang mengajarkan arti cinta dan tanggung jawab terhadap bahasa serta budaya.</p>
+              <button class="btn btn-secondary detail-btn" data-target="#relaxationDetail">Detail</button>
+              <div class="collapse" id="relaxationDetail">
+                <p>Sebagai Duta Bahasa, saya tidak hanya belajar tentang kekayaan bahasa Indonesia, daerah, dan asing, tetapi juga memahami peran generasi muda dalam merawat identitas bangsa. Setiap perjalanan yang dilalui adalah refleksi dari komitmen untuk menjadikan bahasa sebagai jembatan yang menyatukan masa lalu, masa kini, dan masa depan.  
+                  Melalui Tri Gatra Bangun Bahasa: mengutamakan bahasa Indonesia, melestarikan bahasa daerah, dan menguasai bahasa asing. Sebagai Duta Bahasa, saya berupaya menjadikan bahasa Indonesia sebagai identitas kebangsaan yang kokoh, menjaga bahasa daerah agar tetap hidup di tengah arus globalisasi, dan memanfaatkan bahasa asing untuk menjangkau dunia.</p>
+                <button class="btn less-btn">Show Less</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- slide show -->
+    <section class="container my-5">
+      <h2 class="section-title text-center">The Winners</h2>
+      <div id="slideshow" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="higlight 1.jpg" class="d-block w-100" alt="Highlight 1">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Juara 2</h5>
+              <p>Wayan Gede Adi Suastawan</p>
+              <p>Ayu Gita Pramesthi</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="hg 2.jpg" class="d-block w-100" alt="Highlight 2">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Juara 3</h5>
+              <p>I Made Doddy Krisna Prayogha</p>
+              <p>Ni Nyoman Ayu Sintya Dewi </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="hg3.jpg" class="d-block w-100" alt="Highlight 3">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Duta Atribut</h5>
+              <p>Wayan Gede Adi Suastawan </p>
+              <p>Ayu Gita Pramesthi </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    
+    
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Duta Bahasa. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script>
+      document.querySelectorAll('.detail-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const target = document.querySelector(this.dataset.target);
+          const collapse = new bootstrap.Collapse(target, {
+            toggle: true
+          });
+          this.style.display = 'none';
+        });
+      });
+
+      document.querySelectorAll('.less-btn').forEach(button => {
+        button.addEventListener('click', function() {
+          const collapse = this.closest('.collapse');
+          const detailBtn = document.querySelector(`[data-target="#${collapse.id}"]`);
+          const bsCollapse = new bootstrap.Collapse(collapse, {
+            toggle: true
+          });
+          detailBtn.style.display = 'inline-block';
+        });
+      });
+    </script>
+
+    <script>
+      function initializeCountdown(endDate, elementIds) {
+        const updateCountdown = () => {
+          const now = new Date().getTime();
+          const distance = endDate - now;
+
+          if (distance >= 0) {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById(elementIds.days).innerText = days;
+            document.getElementById(elementIds.hours).innerText = hours;
+            document.getElementById(elementIds.minutes).innerText = minutes;
+            document.getElementById(elementIds.seconds).innerText = seconds;
+          }
+        };
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+
+      const endDate1 = new Date("2025-02-01T00:00:00").getTime();
+      const endDate2 = new Date("2025-03-01T00:00:00").getTime();
+
+      initializeCountdown(endDate1, { days: "days1", hours: "hours1", minutes: "minutes1", seconds: "seconds1" });
+      initializeCountdown(endDate2, { days: "days2", hours: "hours2", minutes: "minutes2", seconds: "seconds2" });
+    </script>
+
+  </body>
+</html>
