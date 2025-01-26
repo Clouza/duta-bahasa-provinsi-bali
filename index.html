@@ -28,7 +28,6 @@
         font-family: "Poppins", sans-serif;
         margin: 0;
         padding: 0;
-        
       }
 
       .floating-message {
@@ -101,7 +100,7 @@
       .navbar-brand {
         display: flex;
         align-items: center;
-        margin-left: -30px;
+        margin-left: -23px;
       }
 
       .navbar-brand img {
@@ -220,13 +219,6 @@
         cursor: pointer;
       }
 
-      footer {
-        background-color: rgba(83, 156, 0, 1);
-        color: #f8f9fa;
-        padding: 20px 0;
-        text-align: center;
-      }
-
       .trophy-icon {
         color: gold; /* Atur warna emas untuk ikon piala */
       }
@@ -319,37 +311,64 @@
         }
       }
 
-      footer {
-        background: linear-gradient(#195b00,#00ff19);  
-        color: white;
+      /* Global Styles for Footer */
+      .footer {
+        background: linear-gradient(#195b00,#00ff19); /* Gradient background */
+        color: #ffffff; /* Text color */
+        padding-top: 20px; /* Padding atas */
+        padding-bottom: 20px; /* Padding bawah */
+        font-family: Arial, sans-serif; /* Font elegan */
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Tambahkan shadow */
       }
 
-      footer h5 {
-        font-size: 18px;
-        font-weight: 600;
+      .footer h5 {
+        font-size: 1.5rem; /* Ukuran teks "Follow Us" */
+        font-weight: bold; /* Bold untuk heading */
+        margin-bottom: 15px; /* Jarak bawah heading */
       }
 
-      footer ul {
-        padding-left: 0;
+      .footer ul {
+        list-style: none; /* Hilangkan bullet list */
+        padding: 0; /* Hilangkan padding */
+        margin: 0; /* Hilangkan margin */
+        display: flex; /* Atur dalam baris horizontal */
+        justify-content: center; /* Pusatkan item */
       }
 
-      footer ul li {
-        margin-bottom: 10px;
+      .footer ul li {
+        margin: 0 15px; /* Jarak antar item */
       }
 
-      footer ul.d-flex li {
-        margin-right: 15px;
-      }
-
-      footer ul li a {
+      .footer ul li a {
+        color: #ffffff; /* Warna teks */
+        text-decoration: none; /* Hilangkan garis bawah */
+        transition: color 0.3s ease, transform 0.3s ease; /* Animasi hover */
+        font-size: 1rem; /* Ukuran font link */
         display: flex;
         align-items: center;
       }
 
-      footer ul li a i {
-        font-size: 20px;
-        margin-right: 8px;
+      .footer ul li a i {
+        font-size: 1.2rem; /* Ukuran ikon */
+        margin-right: 8px; /* Jarak ikon dengan teks */
       }
+
+      .footer ul li a:hover {
+        color: #ffeb3b; /* Warna hover */
+        transform: scale(1.1); /* Efek zoom saat hover */
+      }
+
+      .footer p {
+        margin: 0; /* Hilangkan margin default */
+        font-size: 0.9rem; /* Ukuran teks kecil */
+        opacity: 0.8; /* Teks transparan untuk kesan elegan */
+      }
+
+      .footer p:hover {
+        opacity: 1; /* Kembali ke teks penuh saat hover */
+        transition: opacity 0.3s ease; /* Efek transisi */
+      }
+
 
     </style>
   </head>
