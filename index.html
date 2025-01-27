@@ -50,45 +50,6 @@
         white-space: nowrap; /* Pastikan teks tetap horizontal */
       }
 
-      /* WhatsApp Bubble */
-      .whatsapp-bubble {
-        position: fixed;
-        bottom: 20px; /* Posisi ikon WhatsApp dari bawah */
-        right: 20px; /* Posisi ikon WhatsApp dari kanan */
-        z-index: 999; /* Icon tetap di bawah pesan */
-        text-align: center;
-      }
-
-      .whatsapp-bubble img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%; /* Bentuk lingkaran */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Efek bayangan */
-        transition: transform 0.3s ease;
-      }
-
-      .whatsapp-bubble img:hover {
-        transform: scale(1.1); /* Efek hover memperbesar ikon */
-      }
-
-      /* Animasi muncul */
-      @keyframes easeInSmooth {
-        0% {
-          opacity: 0;
-          transform: translateY(10px); /* Efek slide ke atas */
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .whatsapp-bubble img {
-          width: 50px; /* Ukuran lebih kecil untuk mobile */
-          height: 50px;
-        }
-      }
 
       .navbar {
         background: linear-gradient(#24265c,#47488b);
