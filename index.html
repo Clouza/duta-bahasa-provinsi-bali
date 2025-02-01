@@ -24,316 +24,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css"/>
 
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-
-      .floating-message {
-        background-color: #25d366; /* Warna hijau WhatsApp */
-        color: white; /* Warna teks */
-        padding: 8px 12px; /* Padding teks */
-        border-radius: 20px; /* Membuat bentuk rounded */
-        font-size: 14px; /* Ukuran teks */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Bayangan */
-        margin-bottom: 10px; /* Jarak antara pesan dan icon */
-        display: inline-block; /* Tetap horizontal */
-        position: absolute; /* Untuk kontrol posisi */
-        bottom: 60px; /* Jarak dari ikon ke atas */
-        right: 0px; /* Geser sedikit ke dalam dari tepi kanan */
-        opacity: 0; /* Untuk animasi */
-        animation: easeInSmooth 2s ease-out; /* Animasi muncul dan menghilang */
-        z-index: 1000; /* Pastikan berada di atas elemen lain */
-        white-space: nowrap; /* Pastikan teks tetap horizontal */
-      }
-
-
-      .navbar {
-        background: linear-gradient(#24265c,#47488b);
-        position: sticky;
-        top: 0;
-        z-index: 1030;
-        display: flexbox;
-        justify-content: space-between;
-      }
-
-      .navbar-brand {
-        display: flex;
-        align-items: center;
-        margin-left: -23px;
-      }
-
-      .navbar-brand img {
-        width: 50px;
-        height: auto;
-        border: none;
-      }
-      .navbar-brand p {
-        margin-top: 2px;
-        margin-bottom: 0px;
-        font-size: 1.25rem;
-      }
-
-      .navbar .nav-link {
-        color: #f8f9fa !important;
-      }
-
-      .navbar .nav-link:hover {
-        color: #ffc107 !important;
-      }
-
-      .hero {
-        background: url(bg.jpg) no-repeat center center;
-        background-size: cover; /* Gambar akan menyesuaikan ukuran elemen */
-        background-position: center 20%;
-        color: #fff;
-        text-align: left;
-        padding: 150px 20px 230px 20px; /* Padding tetap berlaku */
-        margin-bottom: 50px;
-        position: relative;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end; /* Posisikan teks ke bawah */
-        align-items: flex-start; /* Posisikan teks ke kiri */
-      }
-
-      .hero h1,
-      .hero h3 {
-        margin: 0; /* Hapus margin untuk mencegah tumpang tindih */
-        position: relative;
-        transform: translateY(150px);
-      }
-
-      .hero h1 {
-        font-weight: 700;
-        font-size: 3rem;
-      }
-
-      .hero h3 {
-        font-weight: 300;
-        margin-bottom: 20px;
-      }
-
-      .hero .btn {
-        position: relative;
-        margin-top: 20px;
-        background: none;
-        border: 2px solid #fff; /* Tambahkan border */
-        color: #fff;
-        font-size: 1.25rem;
-        text-decoration: none;
-        cursor: pointer;
-        padding: 10px 20px; /* Tambahkan padding */
-        transform: translateY(150px);
-      }
-
-      .hero .btn:hover {
-        background-color: rgba(83, 156, 0, 1); /* Warna latar saat hover */
-      }
-
-      .hero::after {
-        content: "";
-        background: url("https://source.unsplash.com/1600x900/?nature,bali");
-        opacity: 0.2;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
-
-      .section-title {
-        font-size: 2rem;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 40px;
-        color: #343a40;
-      }
-
-      .card {
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-        border: none;
-        border-radius: 15px;
-        overflow: hidden;
-      }
-
-      .card:hover {
-        transform: scale(1.07);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      }
-
-      .card-title {
-        color: #343a40;
-        font-weight: 600;
-      }
-
-      .btn.less-btn {
-        background: none;
-        border: none;
-        color: #6c757d;
-        padding: 0;
-        font-size: 0.9rem;
-        text-decoration: underline;
-        cursor: pointer;
-      }
-
-      .trophy-icon {
-        color: gold; /* Atur warna emas untuk ikon piala */
-      }
-
-      .countdown {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
-      .countdown-item {
-        text-align: center;
-        padding: 12px;
-        border-radius: 10px;
-        background-color: #f1c40f;
-        color: #000;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-      .countdown-item span {
-        font-size: 2rem;
-        font-weight: bold;
-      }
-
-      .carousel-inner {
-        border-radius: 15px;
-      }
-
-      .carousel-item {
-        transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
-      }
-
-      #slideshow {
-        max-width: 350px; /* Sesuaikan ukuran dengan card */
-        margin: 0 auto; /* Pusatkan slideshow */
-        border-radius: 15px; /* Konsisten dengan card */
-        overflow: hidden;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan agar mirip card */
-      }
-
-      .carousel-control-prev,
-      .carousel-control-next {
-        display: none; /* Opsional: sembunyikan kontrol panah jika tidak diperlukan */
-      }
-
-      .carousel-item {
-        position: relative; /* Agar teks bisa diposisikan secara absolut di dalam item */
-      }
-
-      .carousel-caption {
-        position: absolute;
-        bottom: 0; /* Teks akan berada di bagian bawah gambar */
-        left: 0;
-        width: 100%;
-        padding: 10px 20px; /* Tambahkan sedikit padding agar teks tidak terlalu menempel di tepi */
-        background: rgba(
-          0,
-          0,
-          0,
-          0.5
-        ); /* Latar belakang semi-transparan untuk meningkatkan kontras */
-        color: #fff; /* Warna teks putih agar kontras dengan latar belakang gelap */
-        text-align: left; /* Atur teks menjadi rata kiri */
-        font-size: 1rem; /* Sesuaikan ukuran teks */
-      }
-
-      .carousel-caption h5 {
-        margin: 0 0 5px; /* Hapus margin atas dan tambahkan sedikit jarak di bawah */
-        font-size: 1.25rem; /* Ukuran teks untuk judul */
-        font-weight: 600; /* Tambahkan ketebalan pada teks judul */
-      }
-
-      .carousel-caption p {
-        margin: 0;
-        font-size: 1rem; /* Ukuran teks untuk deskripsi */
-        font-weight: 400;
-      }
-
-      /* Tambahkan media query untuk memastikan tampilan tetap responsif */
-      @media (max-width: 768px) {
-        .carousel-caption {
-          font-size: 0.9rem; /* Ukuran teks lebih kecil untuk layar kecil */
-          padding: 5px 10px; /* Kurangi padding pada layar kecil */
-        }
-
-        .carousel-caption h5 {
-          font-size: 1rem;
-        }
-
-        .carousel-caption p {
-          font-size: 0.8rem;
-        }
-      }
-
-      /* Global Styles for Footer */
-      .footer {
-        background: linear-gradient(#24265c,#47488b); /* Gradient background */
-        color: #ffffff; /* Text color */
-        padding-top: 20px; /* Padding atas */
-        padding-bottom: 20px; /* Padding bawah */
-        font-family: Arial, sans-serif; /* Font elegan */
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Tambahkan shadow */
-      }
-
-      .footer h5 {
-        font-size: 1.5rem; /* Ukuran teks "Follow Us" */
-        font-weight: bold; /* Bold untuk heading */
-        margin-bottom: 15px; /* Jarak bawah heading */
-      }
-
-      .footer ul {
-        list-style: none; /* Hilangkan bullet list */
-        padding: 0; /* Hilangkan padding */
-        margin: 0; /* Hilangkan margin */
-        display: flex; /* Atur dalam baris horizontal */
-        justify-content: center; /* Pusatkan item */
-      }
-
-      .footer ul li {
-        margin: 0 15px; /* Jarak antar item */
-      }
-
-      .footer ul li a {
-        color: #ffffff; /* Warna teks */
-        text-decoration: none; /* Hilangkan garis bawah */
-        transition: color 0.3s ease, transform 0.3s ease; /* Animasi hover */
-        font-size: 1rem; /* Ukuran font link */
-        display: flex;
-        align-items: center;
-      }
-
-      .footer ul li a i {
-        font-size: 1.2rem; /* Ukuran ikon */
-        margin-right: 8px; /* Jarak ikon dengan teks */
-      }
-
-      .footer ul li a:hover {
-        color: #ffeb3b; /* Warna hover */
-        transform: scale(1.1); /* Efek zoom saat hover */
-      }
-
-      .footer p {
-        margin: 0; /* Hilangkan margin default */
-        font-size: 0.9rem; /* Ukuran teks kecil */
-        opacity: 1; /* Teks transparan untuk kesan elegan */
-      }
-
-      .footer p:hover {
-        opacity: 1; /* Kembali ke teks penuh saat hover */
-        transition: opacity 0.3s ease; /* Efek transisi */
-      }
-
-
-    </style>
+    
   </head>
   <body>
     <!-- Navbar -->
@@ -543,7 +236,7 @@
 
     <!-- slide show -->
     <section class="container my-5">
-      <h2 class="section-title text-center">Duta Bahasa Provinsi Bali 2024</h2>
+      <h2 class="section-title text-center">Duta Bahasa Provinsi Bali 2024</h2>
       <div
         id="slideshow"
         class="carousel slide"
@@ -553,7 +246,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="higlight 1.jpg" class="d-block w-100" alt="Highlight 1" />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption ">
               <h5>Juara 2</h5>
               <p>Wayan Gede Adi Suastawan</p>
               <p>Ayu Gita Pramesthi</p>
@@ -561,7 +254,7 @@
           </div>
           <div class="carousel-item">
             <img src="hg 2.jpg" class="d-block w-100" alt="Highlight 2" />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption ">
               <h5>Juara 3</h5>
               <p>I Made Doddy Krisna Prayogha</p>
               <p>Ni Nyoman Ayu Sintya Dewi</p>
@@ -569,13 +262,56 @@
           </div>
           <div class="carousel-item">
             <img src="hg3.jpg" class="d-block w-100" alt="Highlight 3" />
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption">
               <h5>Duta Atribut</h5>
               <p>Wayan Gede Adi Suastawan</p>
               <p>Ayu Gita Pramesthi</p>
             </div>
           </div>
         </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#slideshow"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#slideshow"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!--Peserta slideshow-->
+    <section class="container my-5">
+      <h1 class="section-title text-center">Peserta Duta Bahasa Provinsi Bali 2024</h1>
+      <div
+        id="slideshow 1"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        data-bs-interval="3000"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Peserta 2.jpg" class="d-block w-100" alt="Highlight 1" />
+          </div>
+          <div class="carousel-item">
+            <img src="Peserta 3.jpg" class="d-block w-100" alt="Highlight 2" />
+          </div>
+          <div class="carousel-item">
+            <img src="Peserta 1.jpg" class="d-block w-100" alt="Highlight 3" />
+        </div>
+        <div class="carousel-item">
+          <img src="Peserta 4.jpg" class="d-block w-100" alt="Highlight 3" />
+      </div>
         <button
           class="carousel-control-prev"
           type="button"
