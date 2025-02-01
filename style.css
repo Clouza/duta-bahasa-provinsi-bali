@@ -160,6 +160,7 @@ body {
 .countdown {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 .countdown-item {
@@ -242,6 +243,16 @@ body {
 
   .carousel-caption p {
     font-size: 0.8rem;
+  }
+
+  .countdown-item {
+    width: 35%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .countdown-item {
+    width: 10%;
   }
 }
 
