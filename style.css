@@ -185,7 +185,7 @@ body {
 }
 
 #slideshow {
-  max-width: 350px; /* Sesuaikan ukuran dengan card */
+  max-width: 1000px; /* Sesuaikan ukuran dengan card */
   margin: 0 auto; /* Pusatkan slideshow */
   border-radius: 15px; /* Konsisten dengan card */
   overflow: hidden;
